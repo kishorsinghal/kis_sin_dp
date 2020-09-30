@@ -1,0 +1,43 @@
+/*package whatever //do not write package name here */
+
+
+//SIMPLE RECURSIVE CODE
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class GFG {
+    static int max(int a,int b){
+        if(a>b)return a;
+        else return b;
+    }
+  
+    static int f(char[]a1,char[]a2,int l1,int l2){
+        if(l1==0||l2==0)return 0;
+       
+        if(a1[l1-1]==a2[l2-1])return 1+f(a1,a2,l1-1,l2-1);
+        else{
+            return max(f(a1,a2,l1,l2-1),f(a1,a2,l1-1,l2));
+        }
+    }
+	public static void main (String[] args) {
+		//code
+		Scanner x=new Scanner(System.in);
+		int a=x.nextInt();
+		for(int b=0;b<a;b++){
+		    int l1=x.nextInt();
+		    int l2=x.nextInt();
+		
+		    String s=x.nextLine();
+		    String s1=x.nextLine();
+		    String s2=x.nextLine();
+		    char[]a1=s1.toCharArray();
+		    char[]a2=s2.toCharArray();
+		  // System.out.println(s1+" "+s2);
+		   
+		    
+		    System.out.println(f(a1,a2,l1,l2));
+		}
+	}
+}
